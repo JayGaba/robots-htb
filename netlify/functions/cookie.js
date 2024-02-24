@@ -14,11 +14,15 @@ exports.handler = async (event, context) => {
   }
 
   // Check the cookie value and set response accordingly
-  let responseBody = '';
+  
   if (cookieValue === '69') {
-  responseBody = `alert("Flag: HTBSRMIST{wh0_tf_l3t_th1s_guy_c00k}");`;
-} else {
-  responseBody = ''; // Empty response body if the cookie value is not '69'
+  return {
+    statusCode: 302, // Redirect status code
+    headers: {
+      Location: '/lmaotaketheflag.html' // Redirect to flag page
+    },
+    body: '' // Empty response body
+  };
 }
 
   return {
