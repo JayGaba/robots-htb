@@ -27,6 +27,20 @@
     </form>
   </div>
 <p>pro web developer</p>
-    
+<script>
+// Function to set a cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Usage: Set a cookie named "example" with value "123" that expires in 30 days
+setCookie("example", "123", 30);
+</script>
 </body>
 </html>
