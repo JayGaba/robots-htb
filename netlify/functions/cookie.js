@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
   return {
     statusCode: 302, // Redirect status code
     headers: {
-      Location: '/lmaotaketheflag.html' // Redirect to flag page
+      Location: '/lmaotaketheflag.txt' // Redirect to flag page
     },
     body: '' // Empty response body
   };
