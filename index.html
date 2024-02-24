@@ -29,12 +29,26 @@
 <p>pro web developer</p>
 <script>
   fetch('/.netlify/functions/cookie')
-    .then(response => response.text())
-    .then(script => {
-      // Execute the JavaScript returned by the server
-      eval(script);
-    });
-</script>
+  .then(response => {
+    // Check if the server wants to set a cookie
+    if (response.headers.has('Set-Cookie')) {
+      // Get the 'Set-Cookie' header from the response
+      const setCookieHeader = response.headers.get('Set-Cookie');
+      
+      // Set the cookie in the browser
+      document.cookie = setCookieHeader;
+    }
+
+    // Check if the server wants to redirect
+    if (response.headers.has('Location')) {
+      // Get the 'Location' header from the response
+      const location = response.headers.get('Location');
+      
+      // Redirect the browser to the new location
+      window.location.href = location;
+    }
+  });
+
 
 </body>
 </html>
