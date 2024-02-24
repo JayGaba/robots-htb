@@ -1,7 +1,5 @@
-// netlify/functions/cookie.js
-
 exports.handler = async (event, context) => {
-  // Set the cookie value
+  // Set the default cookie value
   let cookieValue = '1';
   
   // Check if the cookie is already set
@@ -13,30 +11,22 @@ exports.handler = async (event, context) => {
       .split('=')[1];
   }
 
-  // Check the cookie value and set response accordingly
+  // Set response body and redirection if the cookie value is '69'
+  let redirectLocation = '';
   if (cookieValue === '69') {
-  responseBody = 'window.onload = function() { alert("Flag: {wh0_tf_l3t_th1s_guy_c00k}"); };';
-} else {
-  responseBody = ''; // Empty response body if the cookie value is not '69'
-}
+    redirectLocation = '/lmaotaketheflag.txt';
+  }
 
-  
-  if (cookieValue === '69') {
-  return {
+  // Set the cookie and return the redirect if the cookie value is '69', otherwise, just set the cookie
+  const response = {
     statusCode: 302, // Redirect status code
-    headers: {
-      Location: '/lmaotaketheflag.txt' // Redirect to flag page
-    },
-    body: '' // Empty response body
-  };
-}
-
-  return {
-    statusCode: 200,
     headers: {
       'Content-Type': 'text/plain',
       'Set-Cookie': `value=${cookieValue}; Path=/; Max-Age=86400; SameSite=None; Secure`,
+      'Location': redirectLocation // Include the redirect location in the headers
     },
-    body: responseBody,
+    body: '' // Empty response body
   };
+
+  return response;
 };
