@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
 
   // Check the cookie value and set response accordingly
   let responseBody = '';
-  if (cookieValue === '69') {
+  if (cookieValue === '1') {
     responseBody = 'Flag: {wh0_tf_l3t_th1s_guy_c00k}';
   } else {
     responseBody = 'Welcome to our website!';
