@@ -27,25 +27,7 @@
     </form>
   </div>
 <p>pro web developer</p>
-<script>
-  // Check if the cookie with "value" is not set, set it to 1
-  if (!document.cookie.includes("value=")) {
-    document.cookie = "value=1";
-  }
 
-  // Check the cookie value and display the flag if it's 69
-  const cookies = document.cookie.split(";");
-  for (let i = 0; i < cookies.length; i++) {
-    if (cookies[i].trim().startsWith("value=")) {
-      const value = parseInt(cookies[i].split("=")[1]);
-      if (value === 69) {
-        // Show a JavaScript alert when the cookie value is 69
-        alert("Flag: {wh0_tf_l3t_th1s_guy_c00k}");
-      }
-      break;
-    }
-  }
-</script>
 
 </body>
 </html>
