@@ -14,6 +14,12 @@ exports.handler = async (event, context) => {
   }
 
   // Check the cookie value and set response accordingly
+  if (cookieValue === '69') {
+  responseBody = 'window.onload = function() { alert("Flag: {wh0_tf_l3t_th1s_guy_c00k}"); };';
+} else {
+  responseBody = ''; // Empty response body if the cookie value is not '69'
+}
+
   
   if (cookieValue === '69') {
   return {
