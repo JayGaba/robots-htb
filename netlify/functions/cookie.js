@@ -15,6 +15,9 @@ exports.handler = async (event, context) => {
   let redirectLocation = '';
   if (cookieValue === '69') {
     redirectLocation = '/lmaotaketheflag.txt';
+  } else {
+    // If the cookie value is not '69', reset it to '1'
+    cookieValue = '1';
   }
 
   // Set the cookie and return the redirect if the cookie value is '69', otherwise, just set the cookie
